@@ -96,6 +96,12 @@ Respond ONLY in valid JSON with this exact schema:
 }}
 
 Rules:
+- Keep response_text under 100 words.
+- Use 3-5 short, actionable steps when possible.
+- Each step should be 1 sentence max.
+- Use simple caregiver-friendly language.
+- Prioritize the most important safety action first.
+- Avoid long paragraphs.
 - Use the policy context above whenever relevant.
 - Do not invent policy names or citations.
 - If the answer comes from the documents, set policy_reference to the exact filename.
@@ -106,7 +112,7 @@ Rules:
     data = {
         #"model": "claude-sonnet-4-6", - latency reasons, testing out quicker models
         "model": "claude-haiku-4-5-20251001",
-        "max_tokens": 500,
+        "max_tokens": 250,
         "messages": [
             {"role": "user", "content": prompt}
         ]
