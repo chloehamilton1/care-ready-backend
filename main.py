@@ -152,7 +152,7 @@ Rules:
         print("FULL RESULT:")
         print(result)
         parsed = {
-            "response_text": "Sorry, I couldn't generate a proper response.",
+            "response_text": "I’m not fully certain, but here are general safety steps: keep the client safe, stay calm, do not force care, and contact your supervisor if there are concerns or changes in condition.",
             "escalation_level": "notify_supervisor",
             "policy_reference": "unknown",
             "resources": [],
