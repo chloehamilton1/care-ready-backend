@@ -46,12 +46,16 @@ def load_policy_docs() -> str:
 POLICY_TEXT = load_policy_docs()
 
 
+class ChatMessage(BaseModel):
+    role: str
+    text: str
+
 class QueryRequest(BaseModel):
     question: str
     role: str
     agency_id: str
     state: str
-
+    history: list[ChatMessage] = []
 
 class QueryResponse(BaseModel):
     response_text: str
@@ -70,7 +74,10 @@ def query_ai(req: QueryRequest):
         "anthropic-version": "2023-06-01",
         "content-type": "application/json",
     }
-
+    history_text = "\n".join(
+    [f"{m.role}: {m.text}" for m in req.history[-6:]]
+)
+    
     prompt = f"""
 You are a caregiving assistant.
 
@@ -82,6 +89,9 @@ POLICY CONTEXT:
 Role: {req.role}
 State: {req.state}
 Agency ID: {req.agency_id}
+
+Recent conversation:
+{history_text}
 
 Question: {req.question}
 
