@@ -108,7 +108,7 @@ Respond ONLY in valid JSON with this exact schema:
 Rules:
 - Keep response_text under 100 words.
 - Always respond in 3–4 numbered steps.
-- Each step must be on its own line starting with "1.", "2.", etc.
+- In response_text, insert a newline character between each numbered step, like: "1. First step\n2. Second step\n3. Third step".
 - Each step should be 1 sentence max.
 - Use simple caregiver-friendly language.
 - Prioritize the most important safety action first.
