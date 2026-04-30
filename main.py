@@ -175,3 +175,9 @@ Rules:
         parsed["resources"] = []
 
     return parsed
+
+@app.post("/feedback")
+def log_feedback(data: dict):
+    print("FEEDBACK RECEIVED:")
+    print(data)
+    return {"status": "ok"}
