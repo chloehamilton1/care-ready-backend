@@ -101,7 +101,7 @@ Respond ONLY in valid JSON with this exact schema:
   "response_text": "clear, simple guidance in plain text (no markdown)",
   "escalation_level": "handle_yourself | notify_supervisor | urgent",
   "policy_reference": "exact source filename from the policy context above, or 'unknown'",
-  "resources": [],
+  "resources": ["specific resource name if relevant, otherwise empty list"],
   "confidence": "low | medium | high"
 }}
 
@@ -119,6 +119,10 @@ Rules:
 - If the answer comes from the documents, set policy_reference to the exact filename.
 - If no relevant policy context exists, set policy_reference to "unknown".
 - Do not include anything outside the JSON.
+- When the question relates to caregiver stress, family conflict, respite, dementia behavior, transportation, benefits, or local support, include 1 relevant resource from the policy context in the resources list.
+- If a relevant resource exists, mention it briefly in response_text.
+- Prefer specific resource names from the documents such as ADRC / ServiceLink, Granite VNA, Easterseals NH Adult Day, ARCH Respite Locator, BenefitsCheckUp, or Monadnock ADRC when relevant.
+- Do not ask for more detail as the main answer; give immediate safe steps first, then say the user can share more details if needed.
 """
 
     data = {
