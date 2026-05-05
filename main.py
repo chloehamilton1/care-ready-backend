@@ -98,7 +98,7 @@ Question: {req.question}
 Respond ONLY in valid JSON with this exact schema:
 
 {{
-  "response_text": "clear, simple guidance in plain text (no markdown)",
+  "response_text": "1. First step\n2. Second step\n3. Third step",
   "escalation_level": "handle_yourself | notify_supervisor | urgent",
   "policy_reference": "exact source filename from the policy context above, or 'unknown'",
   "resources": ["specific resource name if relevant, otherwise empty list"],
@@ -109,11 +109,9 @@ Rules:
 - Keep response_text under 100 words.
 - Always respond in 3–4 numbered steps.
 - Each numbered step MUST be on its own line.
-- Use EXACT formatting:
-1. First step
-2. Second step
-3. Third step
-4. Fourth step
+- response_text MUST start with "1. "
+- response_text MUST contain numbered steps only: 1, 2, 3, and optionally 4.
+- Do not write an introductory paragraph before step 1.x
 - Do NOT put multiple steps on the same line.
 - Each step should be 1 sentence max.
 - Use simple caregiver-friendly language.
