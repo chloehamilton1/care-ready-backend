@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 
-app = FastAPI()
+app = FastAPI(title="Matriva API")
 
 app.add_middleware(
     CORSMiddleware,
